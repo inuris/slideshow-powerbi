@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title></title>
+	<style>
+		html {
+			height: 100%;
+		}
+		body {
+			min-height: 100vh;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+	</style>
+	<script>
+		const second = 10000;
+		
+		const SLIDE = [
+			{
+				name: 'Một cửa CDVC',
+				load: false,
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiNmY5Yjk3MTgtZWU4NS00YWIyLWIxZWEtZDA2ZTJiMGZmMzlmIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSectionecc0bb417f23b12b5ae5'
+			},
+			{
+				name: 'Y tế - Covid',
+				load: false,
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiYTZjYTc4YzUtZmNjNC00NTEwLWI4Y2QtOTk5M2I3MWVhMTNmIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
+			},
+			{
+				name: 'Covid',
+				load: false,
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiMWJkMjMyMDMtZjdkMS00MjBjLWIxNzItNDZlZGI2N2Y1ZDdiIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
+			},
+			{
+				name: 'Giáo dục',
+				load: false,
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiZGM1MGFkY2UtZWFkNC00YzNiLTlhYmYtMTJjOTE1ODcwOWE0IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
+			},
+			{
+				name: 'KTXH',
+				load: false,
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiM2JhMjQyZGItZmIyYi00OTExLWJhYTUtMDFiNWFiZTJhZWI0IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
+			},
+			{
+				name: 'Đất đai',
+				load: false,
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiNmIyODI0ZDMtZDliNi00OTYzLWJlZTYtMjE0YmQ5NWU5YTExIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
+			},
+			{
+				name: 'Social',
+				load: false,
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiNGI1ZTU1OGEtMWQ1OC00YTZjLTlhNjYtOWQwOWViMDNiNjZhIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
+			},
+			{
+				name: 'Phản ánh hiện trường',
+				load: false,
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiNjY5NjE2ODMtNDczMi00OTc3LWJjMjktM2ViNjBiZTFjMDJhIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
+			}
+		]
+
+		let slideIndex = 0;
+		let slideReady = 0;
+
+		window.addEventListener('load', (event) => {
+			SLIDE.forEach((e, slideIndex) => {
+				if (e.load === false) {
+					loadFrame(e);
+				}
+			})
+		});
+
+		function loadFrame(slide) {
+			var iframe = document.createElement('iframe');
+			iframe.onload = function () {
+				if (slide.load === false) {
+					slideReady++;
+					console.log('iframe ' + slideReady + ' loaded');
+					slide.load = true;
+					if (slideReady === SLIDE.length) {
+						setInterval(function () {
+							console.log(slideIndex);
+							showSlide(slideIndex);
+							slideIndex++;
+							if (slideIndex >= SLIDE.length) { slideIndex = 0 }
+						}, second)
+						console.log('page is fully loaded');
+					}
+				}
+			};
+
+			iframe.style = "height: 100%; width: 100%; position: fixed; z-index: 9999; left: 0; top: 0; overflow-x: hidden;";
+			// iframe.height = "100%";
+			// iframe.width = "100%";
+			iframe.className = "slide";
+			iframe.src = slide.url;
+			document.body.appendChild(iframe);
+		}
+		
+		function showSlide(slideIndex) {
+			var i;
+			var slide = document.getElementsByClassName("slide");
+			for (i = 0; i < slide.length; i++) {
+				slide[i].style.display = "none";
+			}
+			slide[slideIndex].style.display = "block";
+			let lastSlide = slideIndex - 2;
+			if (lastSlide < 0) {
+				lastSlide = slide.length - 1;
+			}
+			slide[lastSlide].src += '';
+		}
+	</script>
+</head>
+
+<body>
+</body>
+
+</html>

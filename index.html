@@ -109,7 +109,7 @@
 			slide[slideIndex].style.display = "block";
 			let lastSlide = slideIndex - 2;
 			if (lastSlide < 0) {
-				lastSlide = slide.length - 1;
+				lastSlide += slide.length;
 			}
 			slide[lastSlide].src += '';
 		}

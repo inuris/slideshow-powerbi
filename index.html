@@ -295,7 +295,7 @@
 						<label for="fieldUser" class="label">Tên đăng nhập</label>
 					</div>
 					<div class="field">
-						<input type="password" id="fieldPassword" class="input" onkeypress="" required pattern=.*\S.* />
+						<input type="password" id="fieldPassword" class="input" onkeyup="" required pattern=.*\S.* />
 						<label for="fieldPassword" class="label">Mật khẩu</label>
 					</div>
 					<div class="field warning">
@@ -363,13 +363,18 @@
 
 		let slideIndex = 0;
 		let slideReady = 0;
-		
+
+		let fieldPassword = document.getElementById("fieldPassword");
+		fieldPassword.onkeyup = function (e) {
+			if (e.which == 13) checkPassword();
+		};
+
 		window.addEventListener('load', function(event) {
 			SLIDE.forEach(function(e, slideIndex){
 				if (e.load === false) {
 					loadFrame(e);
 				}
-			})
+			});			
 		});
 
 		function loadFrame(slide) {
@@ -410,13 +415,13 @@
 			}
 			slide[lastSlide].src += '';
 		}
-
 		function checkPassword(){
 			let user = document.getElementById('fieldUser').value;
 			let password = document.getElementById('fieldPassword').value;
 			if (user === ACCOUNT.user && password === ACCOUNT.password){
 				document.getElementById('modal').style.display='none';
 				document.getElementById('slideshow').style.display='block';
+				
 			}
 			else{
 				document.getElementsByClassName('warning')[0].style.display='block';

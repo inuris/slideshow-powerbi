@@ -68,7 +68,7 @@
 			max-width: 384px;
 			margin: 0 auto;
 			position: fixed;
-			top: 0;
+			top: 50%;
 			left: 50%;
 			margin-left: -192px;
 			margin-top: -200px;
@@ -295,7 +295,7 @@
 						<label for="fieldUser" class="label">Tên đăng nhập</label>
 					</div>
 					<div class="field">
-						<input type="password" id="fieldPassword" class="input" required pattern=.*\S.* />
+						<input type="password" id="fieldPassword" class="input" onkeypress="" required pattern=.*\S.* />
 						<label for="fieldPassword" class="label">Mật khẩu</label>
 					</div>
 					<div class="field warning">
@@ -315,8 +315,8 @@
 	<script>
 		const SECOND = 40;
 		const ACCOUNT = {			
-			user: 'aW9jYnJ2dA==',
-			password: 'Vm5wdEAxMjM0'
+			user: 'iocbrvt',
+			password: 'Vnpt@1234'
 		}
 		const SLIDE = [
 			{
@@ -363,9 +363,9 @@
 
 		let slideIndex = 0;
 		let slideReady = 0;
-
-		window.addEventListener('load', (event) => {
-			SLIDE.forEach((e, slideIndex) => {
+		
+		window.addEventListener('load', function(event) {
+			SLIDE.forEach(function(e, slideIndex){
 				if (e.load === false) {
 					loadFrame(e);
 				}
@@ -414,7 +414,7 @@
 		function checkPassword(){
 			let user = document.getElementById('fieldUser').value;
 			let password = document.getElementById('fieldPassword').value;
-			if (btoa(user) === ACCOUNT.user && btoa(password) === ACCOUNT.password){
+			if (user === ACCOUNT.user && password === ACCOUNT.password){
 				document.getElementById('modal').style.display='none';
 				document.getElementById('slideshow').style.display='block';
 			}

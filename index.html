@@ -72,21 +72,7 @@
 			left: 50%;
 			margin-left: -192px;
 			margin-top: -200px;
-			animation: intro .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 			z-index: 200;
-		}
-
-		/* Intro animation */
-		@keyframes intro {
-			from {
-				opacity: 0;
-				top: 0;
-			}
-
-			to {
-				opacity: 1;
-				top: 45%;
-			}
 		}
 
 		h1.login-logo {
@@ -138,13 +124,7 @@
 			height: 0;
 			padding: 3em;
 			border-bottom-left-radius: .25em;
-			border-bottom-right-radius: .25em;
-			-webkit-filter: drop-shadow(0 0 2em rgba(0, 0, 0, 0.2));
-			transition:
-				opacity .4s ease-in-out,
-				height .4s ease-in-out,
-				transform .4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-				padding .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			border-bottom-right-radius: .25em;			
 		}
 
 		.login-fields {
@@ -237,7 +217,6 @@
 			text-transform: uppercase;
 			border-radius: .25rem;
 			letter-spacing: .2em;
-			transition: background .2s;
 		}
 
 		.btn:focus {
@@ -421,7 +400,7 @@
 			if (user === ACCOUNT.user && password === ACCOUNT.password){
 				document.getElementById('modal').style.display='none';
 				document.getElementById('slideshow').style.display='block';
-				
+
 			}
 			else{
 				document.getElementsByClassName('warning')[0].style.display='block';

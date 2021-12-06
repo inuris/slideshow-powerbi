@@ -360,8 +360,11 @@
 					console.log('iframe ' + slideReady + ' loaded');
 					slide.load = true;
 					if (slideReady === SLIDE.length) {
+						// Show slide 1
+						showSlide(slideIndex);
+						slideIndex++;
+
 						setInterval(function () {
-							console.log(slideIndex);
 							showSlide(slideIndex);
 							slideIndex++;
 							if (slideIndex >= SLIDE.length) { slideIndex = 0 }
@@ -374,6 +377,7 @@
 			iframe.style = "height: 100%; width: 100%; position: fixed; z-index: 100; left: 0; top: 0; overflow-x: hidden; border: 0";
 			iframe.className = "slide";
 			iframe.src = slide.url;
+			iframe.title = slide.name;
 			document.getElementById('slideshow').appendChild(iframe);
 		}
 
@@ -384,11 +388,13 @@
 				slide[i].style.display = "none";
 			}
 			slide[slideIndex].style.display = "block";
-			let lastSlide = slideIndex - 2;
-			if (lastSlide < 0) {
-				lastSlide += slide.length;
+			console.log('showing: ', slide[slideIndex].title);
+			let nextRefresh = slideIndex + 2;
+			if (nextRefresh >= slide.length) {
+				nextRefresh -= slide.length;
 			}
-			slide[lastSlide].src += '';
+			console.log('refresh: ', slide[nextRefresh].title);
+			slide[nextRefresh].src += '';
 		}
 		function checkPassword(){
 			let user = document.getElementById('fieldUser').value;

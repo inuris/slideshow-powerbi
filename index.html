@@ -8,11 +8,15 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 	<title> TRUNG TÂM ĐIỀU HÀNH THÔNG MINH TỈNH BÀ RỊA VŨNG TÀU </title>
+	<link rel="stylesheet" href="/lib/swiper/swiper-bundle.min.css" />
 	<style>
 		/* Base styles */
-		*, *:after, *:before {
+		/* *,
+		*:after,
+		*:before {
 			box-sizing: border-box;
 		}
+
 		html {
 			height: 100%;
 		}
@@ -24,9 +28,26 @@
 			overflow: hidden;
 			background: #1F1E30;
 			background: url('images/bg.jpg') no-repeat center center;
+			background-size: cover;
+			font-family: Arial, Helvetica, sans-serif;
+			position: relative;
+		} */
+
+		html,
+		body {
+			position: relative;
+			height: 100%;
+		}
+
+		body {
+			font-size: 14px;
+			color: #000;
+			margin: 0;
+			padding: 0;
+			background: #1F1E30;
+			background: url('images/bg.jpg') no-repeat center center;
 			background-size:cover;
 			font-family: Arial, Helvetica, sans-serif;
-			position: relative;	
 		}
 
 		img {
@@ -59,8 +80,70 @@
 			display: block;
 			float: right;
 		}
-		.slideshow{
-			display: none;
+
+
+		span.dots:before{
+			animation: dots 2s linear infinite;
+			content: '';
+		}
+
+		@keyframes dots{
+			0%, 20%{
+				content: '.'
+			}			
+			40%{
+				content: '..'
+			}			
+			60%{
+				content: '...'
+			}			
+			90%, 100%{
+				content: ''
+			}			
+		}
+		.swiper {
+			width: 100%;
+			height: 100%;
+		}
+
+		.swiper-slide {
+			text-align: center;
+			font-size: 18px;
+			background: #fff;
+
+			/* Center slide text vertically */
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+		}
+
+		.swiper-slide iframe {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.overlay{
+			z-index: 3;
+			padding-top: 100px;
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgb(0,0,0);
+			background-color: rgba(0,0,0,0.4);
 		}
 		/* Container */
 		.modal {
@@ -75,7 +158,7 @@
 			z-index: 200;
 		}
 
-		h1.login-logo {
+		.modal h1.login-logo {
 			font-size: 1.2rem;
 			line-height: 1.2rem;
 			color: #f3f562;
@@ -93,69 +176,65 @@
 		}
 
 		/* login Card */
-		.login {
+		.modal .login {
 			position: relative;
 		}
 
-		.login h2.login-title {
+		.modal .login h2.login-title {
 			font-size: 1.2rem;
 			text-align: center;
 			font-weight: 700;
 			color: #333;
 		}
 
-		.login .login-form {
-			visibility: visible;
+		.modal .login .login-form {
 			height: auto;
 			opacity: 1;
 			padding-top: 0.8em;
 		}
 
-		.login .login-fields {
+		.modal .login .login-fields {
 			opacity: 1;
-			visibility: visible;
 		}
 
-		.login-form {
+		.modal .login-form {
 			position: relative;
 			background: white;
-			visibility: hidden;
 			opacity: 0;
 			height: 0;
 			padding: 3em;
 			border-bottom-left-radius: .25em;
-			border-bottom-right-radius: .25em;			
+			border-bottom-right-radius: .25em;
 		}
 
-		.login-fields {
+		.modal .login-fields {
 			opacity: 0;
-			visibility: hidden;
 		}
 
-		.login-footer {
+		.modal .login-footer {
 			padding-bottom: 0.7em;
 		}
 
-		.register .login-footer,
-		.forget .login-footer {
+		.modal .register .login-footer,
+		.modal .forget .login-footer {
 			padding: 0.7em 0;
 		}
 
 
 
 		/* Form */
-		.field {
+		.modal .field {
 			position: relative;
 			margin-bottom: 1.8em;
 		}
 
-		.field:after {
+		.modal .field:after {
 			content: "";
 			display: table;
 			clear: both;
 		}
 
-		.label {
+		.modal .label {
 			position: absolute;
 			height: 2rem;
 			line-height: 2rem;
@@ -164,8 +243,8 @@
 			color: #ccc;
 		}
 
-		.input,
-		.select {
+		.modal .input,
+		.modal .select {
 			width: 100%;
 			font-size: 100%;
 			border: 0;
@@ -177,27 +256,28 @@
 			color: #777;
 		}
 
-		.input:focus {
+		.modal .input:focus {
 			outline: 0;
 			border-color: #1f91fb;
 		}
 
-		.warning{
+		.modal .warning {
 			display: none;
 			margin-bottom: 1em;
 			text-align: center;
 		}
-		.warning span{
+
+		.modal .warning span {
 			font-size: 0.8em;
 			color: #d00;
-			
+
 		}
 
 		/* Using required and a faux pattern to see if input has text from http://stackoverflow.com/questions/16952526/detect-if-an-input-has-text-in-it-using-css */
 		.modal .input:focus+.label,
 		.modal input:valid+.label,
-		.forget .input:focus+.label,
-		.forget input:valid+.label {
+		.modal .forget .input:focus+.label,
+		.modal .forget input:valid+.label {
 			transform: translateY(-70%);
 			font-size: 0.75rem;
 			color: #999;
@@ -206,7 +286,7 @@
 
 
 		/* Button */
-		.btn {
+		.modal .btn {
 			border: 0;
 			font-size: 0.75rem;
 			height: 2.5rem;
@@ -219,24 +299,25 @@
 			letter-spacing: .2em;
 		}
 
-		.btn:focus {
+		.modal .btn:focus {
 			outline: 0;
 		}
 
-		.btn:hover,
-		.btn:focus {
+		.modal .btn:hover,
+		.modal .btn:focus {
 			background: #e56a56;
 		}
-		.btn.btn-out{
+
+		.modal .btn.btn-out {
 			margin-top: 15px;
 			background: #1984c9;
 		}
 
-		.login-footer {
+		.modal .login-footer {
 			text-align: center;
 		}
 
-		.login-footer .btn {
+		.modal .login-footer .btn {
 			width: 100%
 		}
 
@@ -261,42 +342,56 @@
 </head>
 
 <body>
-	<div id='modal' class="modal">
-		<h1 class="login-logo">
-			TRUNG TÂM ĐIỀU HÀNH THÔNG MINH<p style="font-size:0.9rem; color:#fff;font-weight:400; margin: 0; line-height: 1.8;">TỈNH BÀ RỊA VŨNG TÀU</p>
-		</h1>
-		<div class="login">
-			<div class="login-form">
-				<h2 class="login-title">Đăng nhập hệ thống</h2>
-				<div class="login-fields">
-					<div class="field">
-						<input type="text" id="fieldUser" class="input" required pattern=.*\S.* />
-						<label for="fieldUser" class="label">Tên đăng nhập</label>
-					</div>
-					<div class="field">
-						<input type="password" id="fieldPassword" class="input" onkeyup="" required pattern=.*\S.* />
-						<label for="fieldPassword" class="label">Mật khẩu</label>
-					</div>
-					<div class="field warning">
-						<span>Vui lòng kiểm tra lại tên đăng nhập/mật khẩu</span>
-					</div>
-					<div class="login-footer">
-						<button class="btn btn-login" onclick="checkPassword()">Đăng nhập</button>
-					
+	<div id="overlay" class="overlay">
+		<div id='modal' class="modal">
+			<h1 class="login-logo">
+				TRUNG TÂM ĐIỀU HÀNH THÔNG MINH<p
+					style="font-size:0.9rem; color:#fff;font-weight:400; margin: 0; line-height: 1.8;">TỈNH BÀ RỊA VŨNG TÀU
+				</p>
+			</h1>
+			<div class="login">
+				<div class="login-form">
+					<h2 id="login-title" class="login-title">Đăng nhập hệ thống</h2>
+					<div id="login-fields" class="login-fields">
+						<div class="field">
+							<input type="text" id="fieldUser" class="input" required pattern=.*\S.* />
+							<label for="fieldUser" class="label">Tên đăng nhập</label>
+						</div>
+						<div class="field">
+							<input type="password" id="fieldPassword" class="input" onkeyup="" required pattern=.*\S.* />
+							<label for="fieldPassword" class="label">Mật khẩu</label>
+						</div>
+						<div class="field warning">
+							<span>Vui lòng kiểm tra lại tên đăng nhập/mật khẩu</span>
+						</div>
+						<div class="login-footer">
+							<button class="btn btn-login" onclick="checkPassword()">Đăng nhập</button>
+	
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div id="slideshow" class="slideshow">
+	</div>	
+	<!-- Slider main container -->
+	<div class="swiper">
+		<!-- Additional required wrapper -->
+		<div class="swiper-wrapper" id="slideshow">
+			<!-- Slides -->
+		</div>
+
+		<!-- If we need navigation buttons -->
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
 
 	</div>
+	
+	<!-- Swiper JS -->
+	<script src="lib/swiper/swiper-bundle.min.js"></script>
 	<script>
+		const EXPIRE = 8*60; /* Login expires after 8 hours */
+
 		const SECOND = 30;
-		const ACCOUNT = {			
-			user: 'iocbrvt',
-			password: 'Vnpt@1234'
-		}
 		const SLIDE = [
 			{
 				name: 'KTXH-THU CHI NGÂN SÁCH',
@@ -328,7 +423,7 @@
 				load: false,
 				url: 'https://app.powerbi.com/view?r=eyJrIjoiMDNjZjAzMDgtNjQxMy00NmNkLTkxNjctMDNkY2NkODc2YmFkIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
 			},
-			
+
 			{
 				name: 'Hành chính công - Đường dây nóng',
 				load: false,
@@ -344,7 +439,7 @@
 				load: false,
 				url: 'https://app.powerbi.com/view?r=eyJrIjoiNDA5YjA4NmEtMGNkNy00YzNhLThiZmEtOGExZTc1YTBjZDY2IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
 			},
-			
+
 			{
 				name: 'Giáo Dục',
 				load: false,
@@ -352,80 +447,126 @@
 			}
 		]
 
+		const ACCOUNT = {
+			user: 'iocbrvt',
+			password: 'Vnpt@1234'
+		}
+
 		let slideIndex = 0;
 		let slideReady = 0;
+		let frame, swiper;
+
+		let wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 
 		let fieldPassword = document.getElementById("fieldPassword");
 		fieldPassword.onkeyup = function (e) {
 			if (e.which == 13) checkPassword();
 		};
-
-		window.addEventListener('load', function(event) {
-					
-		});
-
-		function loadFrame(slide) {
-			var iframe = document.createElement('iframe');
-			iframe.onload = function () {
-				if (slide.load === false) {
-					slideReady++;
-					console.log('iframe ' + slideReady + ' loaded');
-					slide.load = true;
-					if (slideReady === SLIDE.length) {
-						// Show slide 1
-						showSlide(slideIndex);
-						slideIndex++;
-
-						setInterval(function () {
-							showSlide(slideIndex);
-							slideIndex++;
-							if (slideIndex >= SLIDE.length) { slideIndex = 0 }
-						}, SECOND * 1000)
-						console.log('page is fully loaded');
-					}
-				}
-			};
-
-			iframe.style = "height: 100%; width: 100%; position: fixed; z-index: 100; left: 0; top: 0; overflow-x: hidden; border: 0";
-			iframe.className = "slide";
-			iframe.src = slide.url;
-			iframe.title = slide.name;
-			document.getElementById('slideshow').appendChild(iframe);
-		}
-
-		function showSlide(slideIndex) {
-			var i;
-			var slide = document.getElementsByClassName("slide");
-			for (i = 0; i < slide.length; i++) {
-				slide[i].style.display = "none";
-			}
-			slide[slideIndex].style.display = "block";
-			console.log('showing: ', slide[slideIndex].title);
-			let nextRefresh = slideIndex + 2;
-			if (nextRefresh >= slide.length) {
-				nextRefresh -= slide.length;
-			}
-			console.log('refresh: ', slide[nextRefresh].title);
-			slide[nextRefresh].src += '';
-		}
-		function checkPassword(){
+		function checkPassword() {
 			let user = document.getElementById('fieldUser').value;
 			let password = document.getElementById('fieldPassword').value;
-			if (user === ACCOUNT.user && password === ACCOUNT.password){
-				document.getElementById('modal').style.display='none';
-				document.getElementById('slideshow').style.display='block';
-
-				SLIDE.forEach(function(e, slideIndex){
-					if (e.load === false) {
-						loadFrame(e);
-					}
-				});	
-
+			if (user === ACCOUNT.user && password === ACCOUNT.password) {				
+				let now = new Date().toLocaleString();
+				localStorage.setItem('login', now);
+				window.location.href += '';
 			}
-			else{
-				document.getElementsByClassName('warning')[0].style.display='block';
+			else {
+				document.getElementsByClassName('warning')[0].style.display = 'block';
 			}
 		}
+		function checkLogin(){
+			const getLoginTime = localStorage.getItem('login');			
+			if (getLoginTime){
+				const login = new Date(getLoginTime);
+				const now = new Date();
+				const expire = (now - login)/1000/60;
+				console.log("Last login: " + Math.round(expire) + " minutes ago");
+				if (expire <= EXPIRE){
+					return true;
+				}
+			}
+			return false;
+		}
+
+		window.addEventListener('load', async function (event) {
+			document.getElementById('slideshow').style.visibility='hidden';
+			frame = initFrame();
+
+			if (checkLogin() === true){	
+				await initSlideshow();
+			}	
+		});
+		let progress = 0;
+		function getLoadingProgress(){
+			if (slideReady === 0 && progress < 100){
+				progress++;
+			}			
+			return progress + Math.round((slideReady * 100 / SLIDE.length) * (100 - progress)/100);
+		}
+		async function initSlideshow(){
+			document.getElementById('login-fields').innerHTML = "";
+			document.getElementById('login-title').innerHTML = '<span>Đang tải dữ liệu</span><span class="dots"></span>';
+			frame.forEach(function(e){		
+				e.onload = function (e) {
+					if (this.getAttribute("data-load") == "0"){
+						slideReady++;
+						this.setAttribute("data-load",1);
+						console.log('iframe ' + slideReady + ' loaded');		
+						document.getElementById('login-title').innerHTML = '<span>Đang tải dữ liệu</span><span class="dots"></span><br /><span>' + getLoadingProgress() + '%</span>';				
+					}					
+				};		
+				e.src = e.getAttribute("data-url");
+			});
+
+			while (slideReady < SLIDE.length){
+				console.log("loading...");				
+				document.getElementById('login-title').innerHTML = '<span>Đang tải dữ liệu</span><span class="dots"></span><br /><span>' + getLoadingProgress() + '%</span>';			
+				await wait(2000);
+			}
+
+			console.log('page is fully loaded');
+
+			/* Hide login & show the swiper*/
+			document.getElementById('overlay').style.visibility='hidden';
+			document.getElementById('slideshow').style.visibility='visible';
+
+			swiper = new Swiper('.swiper', {
+				// Optional parameters
+				autoplay: {
+					delay: 5000,
+				},
+				loop: true,
+				// Navigation arrows
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			});
+			console.log('swiper loaded');
+		}
+		
+		function initFrame(){
+			let _frame = [];
+			SLIDE.forEach(function(_slide){
+				var iframe = document.createElement('iframe');
+				iframe.style = "height: 100%; width: 100%; position: absolute; top: 0; left: 0; bottom: 0; right: 0; overflow-x: hidden; border: 0";
+				iframe.className = "swiper-slide-iframe";				
+				iframe.title = _slide.name;
+				iframe.setAttribute("data-url",_slide.url);
+				iframe.setAttribute("data-load",0);
+				
+				_frame.push(iframe);
+
+				var iframeDiv = document.createElement('div');
+				iframeDiv.className = "swiper-slide";
+				iframeDiv.appendChild(iframe);				
+				document.getElementById('slideshow').appendChild(iframeDiv);
+			});
+			return _frame;
+		}
+
+		
 	</script>
 </body>
 

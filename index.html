@@ -389,9 +389,10 @@
 	<!-- Swiper JS -->
 	<script src="lib/swiper/swiper-bundle.min.js"></script>
 	<script>
-		const EXPIRE = 8*60; /* Login expires after 8 hours */
+		const EXPIRE = 8 * 60; /* (minute) Login expires after 8 hours */
 
-		const SECOND = 30;
+		const DELAY = 30; /* (second) - Autoplay */
+
 		const SLIDE = [
 			{
 				name: 'KTXH-THU CHI NGÂN SÁCH',
@@ -534,7 +535,7 @@
 			swiper = new Swiper('.swiper', {
 				// Optional parameters
 				autoplay: {
-					delay: 5000,
+					delay:  DELAY * 1000,
 				},
 				loop: true,
 				// Navigation arrows

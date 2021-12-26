@@ -10,29 +10,6 @@
 	<title> TRUNG TÂM ĐIỀU HÀNH THÔNG MINH TỈNH BÀ RỊA VŨNG TÀU </title>
 	<link rel="stylesheet" href="lib/swiper/swiper-bundle.min.css" />
 	<style>
-		/* Base styles */
-		/* *,
-		*:after,
-		*:before {
-			box-sizing: border-box;
-		}
-
-		html {
-			height: 100%;
-		}
-
-		body {
-			min-height: 100vh;
-			margin: 0;
-			padding: 0;
-			overflow: hidden;
-			background: #1F1E30;
-			background: url('images/bg.jpg') no-repeat center center;
-			background-size: cover;
-			font-family: Arial, Helvetica, sans-serif;
-			position: relative;
-		} */
-
 		html,
 		body {
 			position: relative;
@@ -345,8 +322,9 @@
 	<div id="overlay" class="overlay">
 		<div id='modal' class="modal">
 			<h1 class="login-logo">
-				TRUNG TÂM ĐIỀU HÀNH THÔNG MINH<p
-					style="font-size:0.9rem; color:#fff;font-weight:400; margin: 0; line-height: 1.8;">TỈNH BÀ RỊA VŨNG TÀU
+				TRUNG TÂM ĐIỀU HÀNH THÔNG MINH
+				<p style="font-size:0.9rem; color:#fff;font-weight:400; margin: 0; line-height: 1.8;">
+					TỈNH BÀ RỊA VŨNG TÀU
 				</p>
 			</h1>
 			<div class="login">
@@ -390,8 +368,8 @@
 	<script src="lib/swiper/swiper-bundle.min.js"></script>
 	<script>
 		const EXPIRE = 8 * 60; /* (minute) Login expires after 8 hours */
-
 		const DELAY = 30; /* (second) - Autoplay */
+		const REFRESH = 3600; /* (second) - Auto refresh iframe */
 
 		const SLIDE = [
 			{
@@ -453,10 +431,17 @@
 			password: 'Vnpt@1234'
 		}
 
-		let slideIndex = 0;
 		let slideReady = 0;
 		let frame, swiper;
 
+		let progress = 0;
+		function getLoadingProgress(){
+			if (slideReady === 0 && progress < 100){
+				progress++;
+			}			
+			return progress + Math.round((slideReady * 100 / SLIDE.length) * (100 - progress)/100);
+		}
+		
 		let wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 
@@ -464,6 +449,8 @@
 		fieldPassword.onkeyup = function (e) {
 			if (e.which == 13) checkPassword();
 		};
+
+		/* Check password from inputs, set to local Storage: login = current date*/
 		function checkPassword() {
 			let user = document.getElementById('fieldUser').value;
 			let password = document.getElementById('fieldPassword').value;
@@ -476,7 +463,9 @@
 				document.getElementsByClassName('warning')[0].style.display = 'block';
 			}
 		}
-		function checkLogin(){
+
+		/* Check the login date from localStorage */
+		function loginValidate(){
 			const getLoginTime = localStorage.getItem('login');			
 			if (getLoginTime){
 				const login = new Date(getLoginTime);
@@ -494,26 +483,27 @@
 			document.getElementById('slideshow').style.visibility='hidden';
 			frame = initFrame();
 
-			if (checkLogin() === true){	
+			if (loginValidate() === true){	
 				await initSlideshow();
 			}	
 		});
-		let progress = 0;
-		function getLoadingProgress(){
-			if (slideReady === 0 && progress < 100){
-				progress++;
-			}			
-			return progress + Math.round((slideReady * 100 / SLIDE.length) * (100 - progress)/100);
-		}
+
 		async function initSlideshow(){
 			document.getElementById('login-fields').innerHTML = "";
 			document.getElementById('login-title').innerHTML = '<span>Đang tải dữ liệu</span><span class="dots"></span>';
 			frame.forEach(function(e){		
 				e.onload = function (e) {
-					if (this.getAttribute("data-load") == "0"){
+					if (this.getAttribute('data-load') == '0'){
+						let slideId = 'slide-'+ slideReady;
+						this.setAttribute('id', slideId);						
+						this.setAttribute("data-load", 1);
+						setInterval(function(){
+							console.log('Refreshing: '+ slideId);
+							document.getElementById(slideId).src += '';
+						}, REFRESH * 1000);
+
 						slideReady++;
-						this.setAttribute("data-load",1);
-						console.log('iframe ' + slideReady + ' loaded');		
+						console.log('iframe ' + slideReady + ' loaded');
 						document.getElementById('login-title').innerHTML = '<span>Đang tải dữ liệu</span><span class="dots"></span><br /><span>' + getLoadingProgress() + '%</span>';				
 					}					
 				};		
@@ -554,6 +544,7 @@
 				iframe.style = "height: 100%; width: 100%; position: absolute; top: 0; left: 0; bottom: 0; right: 0; overflow-x: hidden; border: 0";
 				iframe.className = "swiper-slide-iframe";				
 				iframe.title = _slide.name;
+				iframe.id = 
 				iframe.setAttribute("data-url",_slide.url);
 				iframe.setAttribute("data-load",0);
 				

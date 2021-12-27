@@ -455,7 +455,7 @@
 			let user = document.getElementById('fieldUser').value;
 			let password = document.getElementById('fieldPassword').value;
 			if (user === ACCOUNT.user && password === ACCOUNT.password) {				
-				let now = new Date().toLocaleString();
+				let now = new Date().toJSON();
 				localStorage.setItem('login', now);
 				window.location.href += '';
 			}
@@ -466,7 +466,8 @@
 
 		/* Check the login date from localStorage */
 		function loginValidate(){
-			const getLoginTime = localStorage.getItem('login');			
+			const getLoginTime = localStorage.getItem('login');	
+			console.log(localStorage);		
 			if (getLoginTime){
 				const login = new Date(getLoginTime);
 				const now = new Date();

@@ -2,12 +2,12 @@
 <html>
 
 <head>
-	<meta name="author" content="Khoa Lam">
+	<meta name="author" content="Khoa Lam" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width">
-	<title> TRUNG TÂM ĐIỀU HÀNH THÔNG MINH TỈNH BÀ RỊA VŨNG TÀU </title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width" />
+	<title>TRUNG TÂM ĐIỀU HÀNH THÔNG MINH TỈNH BÀ RỊA VŨNG TÀU</title>
 	<link rel="stylesheet" href="lib/swiper/swiper-bundle.min.css" />
 	<style>
 		html,
@@ -21,9 +21,9 @@
 			color: #000;
 			margin: 0;
 			padding: 0;
-			background: #1F1E30;
+			background: #1f1e30;
 			background: url('images/bg.jpg') no-repeat center center;
-			background-size:cover;
+			background-size: cover;
 			font-family: Arial, Helvetica, sans-serif;
 		}
 
@@ -58,26 +58,32 @@
 			float: right;
 		}
 
-
-		span.dots:before{
+		span.dots:before {
 			animation: dots 2s linear infinite;
 			content: '';
 		}
 
-		@keyframes dots{
-			0%, 20%{
-				content: '.'
-			}			
-			40%{
-				content: '..'
-			}			
-			60%{
-				content: '...'
-			}			
-			90%, 100%{
-				content: ''
-			}			
+		@keyframes dots {
+
+			0%,
+			20% {
+				content: '.';
+			}
+
+			40% {
+				content: '..';
+			}
+
+			60% {
+				content: '...';
+			}
+
+			90%,
+			100% {
+				content: '';
+			}
 		}
+
 		.swiper {
 			width: 100%;
 			height: 100%;
@@ -110,7 +116,7 @@
 			object-fit: cover;
 		}
 
-		.overlay{
+		.overlay {
 			z-index: 3;
 			padding-top: 100px;
 			position: fixed;
@@ -119,9 +125,10 @@
 			width: 100%;
 			height: 100%;
 			overflow: auto;
-			background-color: rgb(0,0,0);
-			background-color: rgba(0,0,0,0.4);
+			background-color: rgb(0, 0, 0);
+			background-color: rgba(0, 0, 0, 0.4);
 		}
+
 		/* Container */
 		.modal {
 			width: 95%;
@@ -146,10 +153,9 @@
 			text-align: center;
 			background: #00408a;
 			margin-bottom: 0;
-			border-top-left-radius: .25em;
-			border-top-right-radius: .25em;
+			border-top-left-radius: 0.25em;
+			border-top-right-radius: 0.25em;
 			padding: 15px 0 10px 0;
-			;
 		}
 
 		/* login Card */
@@ -180,8 +186,8 @@
 			opacity: 0;
 			height: 0;
 			padding: 3em;
-			border-bottom-left-radius: .25em;
-			border-bottom-right-radius: .25em;
+			border-bottom-left-radius: 0.25em;
+			border-bottom-right-radius: 0.25em;
 		}
 
 		.modal .login-fields {
@@ -197,8 +203,6 @@
 			padding: 0.7em 0;
 		}
 
-
-
 		/* Form */
 		.modal .field {
 			position: relative;
@@ -206,7 +210,7 @@
 		}
 
 		.modal .field:after {
-			content: "";
+			content: '';
 			display: table;
 			clear: both;
 		}
@@ -247,7 +251,6 @@
 		.modal .warning span {
 			font-size: 0.8em;
 			color: #d00;
-
 		}
 
 		/* Using required and a faux pattern to see if input has text from http://stackoverflow.com/questions/16952526/detect-if-an-input-has-text-in-it-using-css */
@@ -260,8 +263,6 @@
 			color: #999;
 		}
 
-
-
 		/* Button */
 		.modal .btn {
 			border: 0;
@@ -272,8 +273,8 @@
 			color: white;
 			background: #db442b;
 			text-transform: uppercase;
-			border-radius: .25rem;
-			letter-spacing: .2em;
+			border-radius: 0.25rem;
+			letter-spacing: 0.2em;
 		}
 
 		.modal .btn:focus {
@@ -295,7 +296,7 @@
 		}
 
 		.modal .login-footer .btn {
-			width: 100%
+			width: 100%;
 		}
 
 		@media screen and (max-width: 1024px) {
@@ -320,10 +321,16 @@
 
 <body>
 	<div id="overlay" class="overlay">
-		<div id='modal' class="modal">
+		<div id="modal" class="modal">
 			<h1 class="login-logo">
 				TRUNG TÂM ĐIỀU HÀNH THÔNG MINH
-				<p style="font-size:0.9rem; color:#fff;font-weight:400; margin: 0; line-height: 1.8;">
+				<p style="
+              font-size: 0.9rem;
+              color: #fff;
+              font-weight: 400;
+              margin: 0;
+              line-height: 1.8;
+            ">
 					TỈNH BÀ RỊA VŨNG TÀU
 				</p>
 			</h1>
@@ -332,25 +339,27 @@
 					<h2 id="login-title" class="login-title">Đăng nhập hệ thống</h2>
 					<div id="login-fields" class="login-fields">
 						<div class="field">
-							<input type="text" id="fieldUser" class="input" required pattern=.*\S.* />
+							<input type="text" id="fieldUser" class="input" required pattern=".*\S.*" />
 							<label for="fieldUser" class="label">Tên đăng nhập</label>
 						</div>
 						<div class="field">
-							<input type="password" id="fieldPassword" class="input" onkeyup="" required pattern=.*\S.* />
+							<input type="password" id="fieldPassword" class="input" onkeyup="" required
+								pattern=".*\S.*" />
 							<label for="fieldPassword" class="label">Mật khẩu</label>
 						</div>
 						<div class="field warning">
 							<span>Vui lòng kiểm tra lại tên đăng nhập/mật khẩu</span>
 						</div>
 						<div class="login-footer">
-							<button class="btn btn-login" onclick="checkPassword()">Đăng nhập</button>
-	
+							<button class="btn btn-login" onclick="checkPassword()">
+								Đăng nhập
+							</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
 	<!-- Slider main container -->
 	<div class="swiper">
 		<!-- Additional required wrapper -->
@@ -361,98 +370,106 @@
 		<!-- If we need navigation buttons -->
 		<div class="swiper-button-prev"></div>
 		<div class="swiper-button-next"></div>
-
 	</div>
-	
+
 	<!-- Swiper JS -->
 	<script src="lib/swiper/swiper-bundle.min.js"></script>
 	<script>
 		const EXPIRE = 8 * 60; /* (minute) Login expires after 8 hours */
-		const DELAY = 30; /* (second) - Autoplay */
+		const DELAY = 5; /* (second) - Autoplay */
 		const REFRESH = 3600; /* (second) - Auto refresh iframe */
 
 		const SLIDE = [
 			{
 				name: 'KTXH-THU CHI NGÂN SÁCH',
 				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiOGE1NTAzMTUtYmZlYS00ZWU5LWEzZWMtY2UyYWFmYmY3ZWQzIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiOGE1NTAzMTUtYmZlYS00ZWU5LWEzZWMtY2UyYWFmYmY3ZWQzIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
 			},
 			{
 				name: 'KTXH- DOANH NGHIỆP',
 				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiYmVmOGZjODktMWMwYy00M2ZlLTk4YzAtNDQwNTg4Mzc2ODA3IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSection3ce2d34e397369071aec'
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiYmVmOGZjODktMWMwYy00M2ZlLTk4YzAtNDQwNTg4Mzc2ODA3IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSection3ce2d34e397369071aec',
 			},
+			// {
+			// 	name: 'Youtube Video: Bà Rịa - Vũng Tàu: Khẳng Định Tiềm Năng - Nâng Tầm Hội Nhập',
+			// 	load: false,
+			// 	url: 'https://www.youtube.com/embed/ofDfkO8-6Ss?rel=0&modestbranding=1&autohide=1&mute=1&showinfo=0&controls=0&autoplay=1&loop=1&playlist=ofDfkO8-6Ss',
+			// 	timeout: 127, // delay in seconds
+			// },
 			{
 				name: 'KTXH- CÔNG THƯƠNG ',
 				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiZDYwOWVjN2QtMzI5Yi00ZmJiLTliMzUtNTlhNDUzNjMwM2FjIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSection11b3a3995372a285398b'
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiZDYwOWVjN2QtMzI5Yi00ZmJiLTliMzUtNTlhNDUzNjMwM2FjIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSection11b3a3995372a285398b',
 			},
 			{
 				name: 'KTXH- DU LỊCH',
 				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiZDBjZmQ5MjctNTY2Yi00MWE5LWFkMDgtNDVlNTY1MjJkNWE3IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSection1ec8f6ce5a4ae0bb32a1'
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiZDBjZmQ5MjctNTY2Yi00MWE5LWFkMDgtNDVlNTY1MjJkNWE3IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSection1ec8f6ce5a4ae0bb32a1',
 			},
 			{
 				name: 'Hành chính công - tình hình xử lý hồ sơ',
 				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMmI5YzEyOWYtNDg4MS00MDk3LWIzNmUtMjU5ZDVmNTZkNWJiIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiMmI5YzEyOWYtNDg4MS00MDk3LWIzNmUtMjU5ZDVmNTZkNWJiIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
 			},
 			{
 				name: 'Hành chính công - Hồ sơ quá hạn trễ hạn',
 				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMDNjZjAzMDgtNjQxMy00NmNkLTkxNjctMDNkY2NkODc2YmFkIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiMDNjZjAzMDgtNjQxMy00NmNkLTkxNjctMDNkY2NkODc2YmFkIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
 			},
 
 			{
 				name: 'Hành chính công - Đường dây nóng',
 				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMTU0MzA5NWYtNTBhYy00ZTBhLWFkNzItYmNkYjA1Y2QyNWYwIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSectionfcadd890182b4da5edad'
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiMTU0MzA5NWYtNTBhYy00ZTBhLWFkNzItYmNkYjA1Y2QyNWYwIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSectionfcadd890182b4da5edad',
 			},
 			{
 				name: 'Y tế - Covid',
 				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiZDM5ZTNhMDctNWIzMi00YzIwLTk3NzEtMWJlMjYyZTkxMTdiIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiZDM5ZTNhMDctNWIzMi00YzIwLTk3NzEtMWJlMjYyZTkxMTdiIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
 			},
 			{
 				name: 'Y tế - Thông tin y tế',
 				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiNDA5YjA4NmEtMGNkNy00YzNhLThiZmEtOGExZTc1YTBjZDY2IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiNDA5YjA4NmEtMGNkNy00YzNhLThiZmEtOGExZTc1YTBjZDY2IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
 			},
 
 			{
 				name: 'Giáo Dục',
 				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiNzc3ZGRmZjktZDUzOS00NDczLWJhMDItNTg3YmIzYWE2ZTNhIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D'
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiNzc3ZGRmZjktZDUzOS00NDczLWJhMDItNTg3YmIzYWE2ZTNhIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
 			},
 
 			{
 				name: 'Quan trắc',
 				load: false,
-				url: 'http://ungdung-sotnmt.baria-vungtau.gov.vn/panoquantrac/'
-			}
-			
-		]
+				url: 'http://ungdung-sotnmt.baria-vungtau.gov.vn/panoquantrac/',
+			},
+		];
 
 		const ACCOUNT = {
 			user: 'iocbrvt',
-			password: 'Vnpt@1234'
-		}
+			password: 'Vnpt@1234',
+		};
 
 		let slideReady = 0;
 		let frame, swiper;
 
 		let progress = 0;
-		function getLoadingProgress(){
-			if (slideReady === 0 && progress < 100){
+		function getLoadingProgress() {
+			if (slideReady === 0 && progress < 100) {
 				progress++;
-			}			
-			return progress + Math.round((slideReady * 100 / SLIDE.length) * (100 - progress)/100);
+			}
+			return (
+				progress +
+				Math.round(
+					(((slideReady * 100) / SLIDE.length) * (100 - progress)) / 100
+				)
+			);
 		}
-		
-		let wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+		let wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-		let fieldPassword = document.getElementById("fieldPassword");
+		let fieldPassword = document.getElementById('fieldPassword');
 		fieldPassword.onkeyup = function (e) {
 			if (e.which == 13) checkPassword();
 		};
@@ -461,26 +478,25 @@
 		function checkPassword() {
 			let user = document.getElementById('fieldUser').value;
 			let password = document.getElementById('fieldPassword').value;
-			if (user === ACCOUNT.user && password === ACCOUNT.password) {				
+			if (user === ACCOUNT.user && password === ACCOUNT.password) {
 				let now = new Date().toJSON();
 				localStorage.setItem('login', now);
 				window.location.href += '';
-			}
-			else {
+			} else {
 				document.getElementsByClassName('warning')[0].style.display = 'block';
 			}
 		}
 
 		/* Check the login date from localStorage */
-		function loginValidate(){
-			const getLoginTime = localStorage.getItem('login');	
-			console.log(localStorage);		
-			if (getLoginTime){
+		function loginValidate() {
+			const getLoginTime = localStorage.getItem('login');
+			console.log(localStorage);
+			if (getLoginTime) {
 				const login = new Date(getLoginTime);
 				const now = new Date();
-				const expire = (now - login)/1000/60;
-				console.log("Last login: " + Math.round(expire) + " minutes ago");
-				if (expire <= EXPIRE){
+				const expire = (now - login) / 1000 / 60;
+				console.log('Last login: ' + Math.round(expire) + ' minutes ago');
+				if (expire <= EXPIRE) {
 					return true;
 				}
 			}
@@ -488,54 +504,60 @@
 		}
 
 		window.addEventListener('load', async function (event) {
-			document.getElementById('slideshow').style.visibility='hidden';
+			document.getElementById('slideshow').style.visibility = 'hidden';
 			frame = initFrame();
 
-			if (loginValidate() === true){	
+			if (loginValidate() === true) {
 				await initSlideshow();
-			}	
+			}
 		});
 
-		async function initSlideshow(){
-			document.getElementById('login-fields').innerHTML = "";
-			document.getElementById('login-title').innerHTML = '<span>Đang tải dữ liệu</span><span class="dots"></span>';
-			frame.forEach(function(e){		
+		async function initSlideshow() {
+			document.getElementById('login-fields').innerHTML = '';
+			document.getElementById('login-title').innerHTML =
+				'<span>Đang tải dữ liệu</span><span class="dots"></span>';
+			frame.forEach(function (e) {
 				e.onload = function (e) {
-					if (this.getAttribute('data-load') == '0'){
-						let slideId = 'slide-'+ slideReady;
-						this.setAttribute('id', slideId);						
-						this.setAttribute("data-load", 1);
-						setInterval(function(){
-							console.log('Refreshing: '+ slideId);
+					if (this.getAttribute('data-load') == '0') {
+						let slideId = 'slide-' + slideReady;
+						this.setAttribute('id', slideId);
+						this.setAttribute('data-load', 1);
+						setInterval(function () {
+							console.log('Refreshing: ' + slideId);
 							document.getElementById(slideId).src += '';
 						}, REFRESH * 1000);
 
 						slideReady++;
 						console.log('iframe ' + slideReady + ' loaded');
-						document.getElementById('login-title').innerHTML = '<span>Đang tải dữ liệu</span><span class="dots"></span><br /><span>' + getLoadingProgress() + '%</span>';				
-					}					
-				};		
-				e.src = e.getAttribute("data-url");
+						document.getElementById('login-title').innerHTML =
+							'<span>Đang tải dữ liệu</span><span class="dots"></span><br /><span>' +
+							getLoadingProgress() +
+							'%</span>';
+					}
+				};
+				e.src = e.getAttribute('data-url');
 			});
 
-			while (slideReady < SLIDE.length){
-				console.log("loading...");				
-				document.getElementById('login-title').innerHTML = '<span>Đang tải dữ liệu</span><span class="dots"></span><br /><span>' + getLoadingProgress() + '%</span>';			
+			while (slideReady < SLIDE.length) {
+				console.log('loading...');
+				document.getElementById('login-title').innerHTML =
+					'<span>Đang tải dữ liệu</span><span class="dots"></span><br /><span>' +
+					getLoadingProgress() +
+					'%</span>';
 				await wait(2000);
 			}
 
 			console.log('page is fully loaded');
 
 			/* Hide login & show the swiper*/
-			document.getElementById('overlay').style.visibility='hidden';
-			document.getElementById('slideshow').style.visibility='visible';
+			document.getElementById('overlay').style.visibility = 'hidden';
+			document.getElementById('slideshow').style.visibility = 'visible';
 
 			swiper = new Swiper('.swiper', {
 				// Optional parameters
-				autoplay: {
-					delay:  DELAY * 1000,
-				},
+				autoplay: true,
 				loop: true,
+				autoplayDisableOnInteraction: false,
 				// Navigation arrows
 				navigation: {
 					nextEl: '.swiper-button-next',
@@ -544,29 +566,36 @@
 			});
 			console.log('swiper loaded');
 		}
-		
-		function initFrame(){
+
+		function initFrame() {
 			let _frame = [];
-			SLIDE.forEach(function(_slide){
+			SLIDE.forEach(function (_slide) {
 				var iframe = document.createElement('iframe');
-				iframe.style = "height: 100%; width: 100%; position: absolute; top: 0; left: 0; bottom: 0; right: 0; overflow-x: hidden; border: 0";
-				iframe.className = "swiper-slide-iframe";				
+				iframe.style =
+					'height: 100%; width: 100%; position: absolute; top: 0; left: 0; bottom: 0; right: 0; overflow-x: hidden; border: 0';
+				iframe.className = 'swiper-slide-iframe';
 				iframe.title = _slide.name;
-				iframe.id = 
-				iframe.setAttribute("data-url",_slide.url);
-				iframe.setAttribute("data-load",0);
-				
+				iframe.id = iframe.setAttribute('data-url', _slide.url);
+				iframe.setAttribute('data-load', 0);
+				if (_slide.url.indexOf('youtube.com') >= 0) {
+					iframe.allow =
+						'accelerometer; autoplay *; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+					iframe.setAttribute('allowfullscreen', 'true');
+				}
+
 				_frame.push(iframe);
 
 				var iframeDiv = document.createElement('div');
-				iframeDiv.className = "swiper-slide";
-				iframeDiv.appendChild(iframe);				
+				iframeDiv.className = 'swiper-slide';
+				iframeDiv.setAttribute(
+					'data-swiper-autoplay',
+					(_slide.timeout || DELAY) * 1000
+				);
+				iframeDiv.appendChild(iframe);
 				document.getElementById('slideshow').appendChild(iframeDiv);
 			});
 			return _frame;
 		}
-
-		
 	</script>
 </body>
 

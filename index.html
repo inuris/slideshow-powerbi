@@ -529,29 +529,44 @@
 		});
 
 		async function initSlideshow() {
+			try {
 			document.getElementById('login-fields').innerHTML = '';
 			document.getElementById('login-title').innerHTML =
 				'<span>Đang tải dữ liệu</span><span class="dots"></span>';
 			frame.forEach(function (e) {
-				e.onload = function (e) {
-					if (this.getAttribute('data-load') == '0') {
-						let slideId = 'slide-' + slideReady;
-						this.setAttribute('id', slideId);
-						this.setAttribute('data-load', 1);
-						setInterval(function () {
-							console.log('Refreshing: ' + slideId);
-							document.getElementById(slideId).src += '';
-						}, REFRESH * 1000);
-
-						slideReady++;
-						console.log('iframe ' + slideReady + ' loaded');
-						document.getElementById('login-title').innerHTML =
-							'<span>Đang tải dữ liệu</span><span class="dots"></span><br /><span>' +
-							getLoadingProgress() +
-							'%</span>';
-					}
-				};
-				e.src = e.getAttribute('data-url');
+				try { 
+					e.onload = async function (e) {
+						try { 
+							if (this.getAttribute('data-load') == '0') {
+								let slideId = 'slide-' + slideReady;
+								this.setAttribute('id', slideId);
+								this.setAttribute('data-load', 1);
+								setInterval(function () {
+									console.log('Refreshing: ' + slideId);
+									document.getElementById(slideId).src += '';
+								}, REFRESH * 1000);
+								await wait(3000);
+								this.src += "";
+								slideReady++;
+								console.log('iframe ' + slideReady + ' loaded');
+								document.getElementById('login-title').innerHTML =
+									'<span>Đang tải dữ liệu</span><span class="dots"></span><br /><span>' +
+									getLoadingProgress() +
+									'%</span>';
+							}
+						}
+						catch(err) {
+							console.log("ERROR::", err)
+						}
+					};
+					e.onerror = function(e){
+						console.log("ERROR::", err)
+					}	
+					e.src = e.getAttribute('data-url');
+				}
+				catch(err) {
+						console.log("ERROR::", err)
+				}			
 			});
 
 			while (slideReady < SLIDE.length) {
@@ -569,6 +584,7 @@
 			document.getElementById('overlay').style.visibility = 'hidden';
 			document.getElementById('slideshow').style.visibility = 'visible';
 
+			
 			swiper = new Swiper('.swiper', {
 				// Optional parameters
 				autoplay: true,
@@ -580,17 +596,23 @@
 					prevEl: '.swiper-button-prev',
 				},
 			});
+			
 			console.log('swiper loaded');
+			
+			}
+			catch(err){
+				console.log("ERROR::", err)
+			}
 		}
-
 		function initFrame() {
 			let _frame = [];
 			SLIDE.forEach(function (_slide) {
-				var iframe = document.createElement('iframe');
+				var iframe = document.createElement('embed');
 				iframe.style =
 					'height: 100%; width: 100%; position: absolute; top: 0; left: 0; bottom: 0; right: 0; overflow-x: hidden; border: 0';
 				iframe.className = 'swiper-slide-iframe';
 				iframe.title = _slide.name;
+				iframe.type="text/html";
 				iframe.id = iframe.setAttribute('data-url', _slide.url);
 				iframe.setAttribute('data-load', 0);
 				if (_slide.url.indexOf('youtube.com') >= 0) {
@@ -598,7 +620,7 @@
 						'accelerometer; autoplay *; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
 					iframe.setAttribute('allowfullscreen', 'true');
 				}
-
+				
 				_frame.push(iframe);
 
 				var iframeDiv = document.createElement('div');

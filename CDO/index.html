@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="description" content="" />
 	<meta name="viewport" content="width=device-width" />
-	<title>TRUNG TÂM ĐIỀU HÀNH THÔNG MINH TỈNH BÀ RỊA VŨNG TÀU</title>
+	<title>TRUNG TÂM TIỆN ÍCH HUYỆN CÔN ĐẢO</title>
 	<link rel="stylesheet" href="lib/swiper/swiper-bundle.min.css" />
 	<style>
 		html,
@@ -323,7 +323,7 @@
 	<div id="overlay" class="overlay">
 		<div id="modal" class="modal">
 			<h1 class="login-logo">
-				TRUNG TÂM ĐIỀU HÀNH THÔNG MINH
+				TRUNG TÂM TIỆN ÍCH 
 				<p style="
               font-size: 0.9rem;
               color: #fff;
@@ -331,7 +331,7 @@
               margin: 0;
               line-height: 1.8;
             ">
-					TỈNH BÀ RỊA VŨNG TÀU
+					HUYỆN CÔN ĐẢO
 				</p>
 			</h1>
 			<div class="login">
@@ -381,129 +381,35 @@
 
 		const SLIDE = [
 			{
-				name: 'KTXH- TỔNG THU NGÂN SÁCH NHÀ NƯỚC', //KTXH_1
+				name: 'HÀNH CHÍNH CÔNG - Tình hình giải quyết hồ sơ ', // Tình hình giải quyết hồ sơ
 				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiNDVmOWM4M2ItMDE4Yi00ODZjLTg3MGYtMDIzMzcxZTU2ZWYzIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiMDUzYzUwMTEtZTBkZC00NDQ3LTg2ZDAtMTE5MDk5NjNkYTlkIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
 			},
 			{
-				name: 'KTXH- TỔNG CHI NGÂN SÁCH NHÀ NƯỚC', //KTXH_2
+				name: 'HÀNH CHÍNH CÔNG - Tình hình tiếp nhận hồ sơ', //Tình hình tiếp nhận hồ sơ
 				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiNzE4ZjU3MmQtZWI4My00Y2QxLWE1YWEtNWZhM2ZiNTRjYjBhIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
-			},
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiYjNlZjY0MDUtNmYyNC00NTM0LWI0ZGUtNGNmY2JkM2Y0ZmNlIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
+			},		
 			{
-				name: 'KTXH- TỶ LỆ GIẢI NGÂN VỐN ĐẦU TƯ', //KTXH_3
+				name: 'HÀNH CHÍNH CÔNG - hồ sơ quá hẹn, trễ hẹn', //Hồ sơ Quá hẹn , trễ hẹn
 				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMTUyYmY0YzgtMzYyZC00NjNjLTg2ZjgtYzllNDYwOTZjMGNmIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiNTA3YjM4ZTctMmFjNC00MzhhLWJlMTktNGI4MWIwMjRhMTNkIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
 			},
+				
 			{
-				name: 'KTXH-GTSX CÔNG NGHIỆP', //KTXH_4
+				name: 'TÌNH HÌNH XỬ LÝ PHẢN ÁNH HIỆN TRƯỜNG', //Phản ánh Hiện Trường
 				load: true,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiZWQxZmVlMTEtMDZlMC00NTgxLTlhMzctMzM0MWQzY2Y2ZTc1IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiM2E0ZmU2YTAtMWZjYi00MjFiLThhZGUtYzVkMThjMjJiZDhmIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
+				
+			},
+			{
+				name: 'TÌNH HÌNH KHÁM CHỮA BỆNH TẠI HUYỆN CÔN ĐẢO',  //Y tế
+				load: false,
+				url: 'https://app.powerbi.com/view?r=eyJrIjoiN2I5Njg4M2MtYWZlMy00MjU0LTk5YmItOTAzNTJlMjZkZGVmIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
+				
+			},
+			
 
-			},
-			{
-				name: 'KTXH- TỔNG MỨC BÁN LẺ HÀNG HÓA',  //KTXH_5
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiYWIzOWE4YmEtNDgzNC00NGNlLWE2Y2EtY2U1YjVhNTMyNDE4IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
-
-			},
-			{
-				name: 'KTXH- KIM NGẠCH XUẤT KHẨU ', //KTXH_6
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMDFmMjc5OTItOTMxNi00YjU3LWI2YjAtNDBiMjQ2NWMwMjFlIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
-			},
-
-			{
-				name: 'KTXH- KIM NGẠCH NHẬP KHẨU', //KTXH_7
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMTllMzRkMGUtMGUwYi00MWRmLThlYmQtYjEyYjdhNTZiODczIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
-			},
-			{
-				name: 'KTXH- DOANH THU DỊCH VỤ LƯU TRÚ', //KTXH_8
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMzRjM2VhYjAtYjJlMi00NWNlLWFhMWMtNzY4YTFjYWNjYmQyIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
-			},
-			{
-				name: 'KTXH- DOANH THU DỊCH VỤ LỮ HÀNH', //KTXH_9
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMjc5Njc0OTktMzNiYi00ZTkwLTlkNDgtOTQzYmU3NGNiYmMzIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
-			},
-			{
-				name: 'KTXH- DOANH THU VẬN TẢI KHO BÃI', //KTXH_10
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMDIyYmIxZTEtYjUwYy00MjQyLWFjMGEtMjgyZWQ4MDM3ZWMxIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
-			},
-			{
-				name: 'KTXH- GIÁ TRỊ SẢN XUẤT NÔNG NGHIỆP', //KTXH_11
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiNzA5YWJhNjMtOTlkMS00Y2Q4LTk1NDMtZWI3MDZiNzJlMjM0IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
-			},
-			{
-				name: 'KTXH- GTSX LÂM NGHIỆP', //KTXH_12
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiZjY4MTIwMjgtMGFhMS00MTk0LWI2MjEtYzY2NzQyMGJiNjhmIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
-			},
-			{
-				name: 'KTXH- GTSX NGƯ NGHIỆP', //KTXH_13
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiNTMzNmJiNjktYzYxMy00MWVhLWE4YjItYmZkM2JlNjQ4ZGVkIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
-			},
-			///=============================HÀNH CHÍNH CÔNG ==============			
-			{
-				name: 'Hành chính công - tiếp nhận', //HCC_1 TIẾP NHẬN HỒ SƠ -TRỰC TUYẾN -TRỰC TIẾP
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMWIyY2QzMDUtOTczMy00MzhhLWFhNGUtMzVmYmRhNGRmOTFjIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSectiona39a5f10d082731b2bc0',
-			},
-			{
-				name: 'Hành chính công - HỒ SƠ QUÁ HẸN',//HCC_2 HỒ SƠ QUÁ HẸN
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMDNjZjAzMDgtNjQxMy00NmNkLTkxNjctMDNkY2NkODc2YmFkIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
-
-			},
-			{
-				name: 'Hành chính công - HỒ SƠ TRỄ HẸN', //HCC_2 HỒ SƠ TRỄ HẸN
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMDkwZThiMWYtOWQxNy00NjFiLTk5YzAtODQxYTVkNzRiNzRmIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
-
-			},
-
-			{
-				name: 'Đường dây nóng', // VTU_TV_PADDN
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMTU0MzA5NWYtNTBhYy00ZTBhLWFkNzItYmNkYjA1Y2QyNWYwIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSectionfcadd890182b4da5edad',
-			},
-
-			{
-				name: 'PHẢN ÁNH HIỆN TRƯỜNG',
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiYzY3ZmFiYzUtNjNiZC00OTQyLWJmOWYtNTI2YTYwNzUxZjRkIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D',
-			},
-
-
-			{
-				name: 'Y tế - Thông tin y tế', //yte tivi
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiNDA5YjA4NmEtMGNkNy00YzNhLThiZmEtOGExZTc1YTBjZDY2IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSectioncd02d1d0d5acd223d1e8',
-			},
-
-			//	{
-			//		name: 'Giáo Dục',  //Giao duc tivi
-			//		load: false,
-			//		url: 'https://app.powerbi.com/view?r=eyJrIjoiNzc3ZGRmZjktZDUzOS00NDczLWJhMDItNTg3YmIzYWE2ZTNhIiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSectionfcadd890182b4da5edad',
-			//	},
-
-			{
-				name: 'Đất đai tình hình biến động đất đai', // VTU_TV_TNMT_TinhHinhSuDungDat
-				load: false,
-				url: 'https://app.powerbi.com/view?r=eyJrIjoiMDBkMWM1Y2YtZGMwMC00N2MzLWI4NjYtYTQ2ZTZiMTE1ZGM1IiwidCI6IjBmOGQxOGNmLTBlZTgtNGIyYy1iYTJjLTZjMGQwMGRmNDNlOCIsImMiOjEwfQ%3D%3D&pageName=ReportSection80fc718b685ae08284e5',
-			},
-
-			{
-				name: 'TNMT- Quan trắc',
-				load: false,
-				url: 'http://ungdung-sotnmt.baria-vungtau.gov.vn/panoquantrac/pPanoDesktop.aspx',
-				//url: 'https://ungdung-sotnmt.baria-vungtau.gov.vn/panoquantrac/',
-			},
 		];
 
 		const ACCOUNT = {
@@ -579,67 +485,67 @@
 
 		async function initSlideshow() {
 			try {
-				document.getElementById('login-fields').innerHTML = '';
-				document.getElementById('login-title').innerHTML =
-					'<span>Đang tải dữ liệu</span><span class="dots"></span>';
-				frame.forEach(function (e) {
-
-					e.onload = function (e) {
-						if (this.getAttribute('data-load') == '0') {
-							let slideId = 'slide-' + slideReady;
-							this.setAttribute('id', slideId);
-							this.setAttribute('data-load', 1);
-							setInterval(function () {
-								console.log('Refreshing: ' + slideId);
-								document.getElementById(slideId).src += '';
-							}, REFRESH * 1000);
-
-							slideReady++;
-							console.log('iframe ' + slideReady + ' loaded');
-							document.getElementById('login-title').innerHTML =
-								'<span>Đang tải dữ liệu</span><span class="dots"></span><br /><span>' +
-								getLoadingProgress() +
-								'%</span>';
-						}
-					};
-					e.onerror = function (e) {
-						alert("A");
+			document.getElementById('login-fields').innerHTML = '';
+			document.getElementById('login-title').innerHTML =
+				'<span>Đang tải dữ liệu</span><span class="dots"></span>';
+			frame.forEach(function (e) {
+				
+				e.onload = function (e) {
+					if (this.getAttribute('data-load') == '0') {
+						let slideId = 'slide-' + slideReady;
+						this.setAttribute('id', slideId);
+						this.setAttribute('data-load', 1);
+						setInterval(function () {
+							console.log('Refreshing: ' + slideId);
+							document.getElementById(slideId).src += '';
+						}, REFRESH * 1000);
+						
+						slideReady++;
+						console.log('iframe ' + slideReady + ' loaded');
+						document.getElementById('login-title').innerHTML =
+							'<span>Đang tải dữ liệu</span><span class="dots"></span><br /><span>' +
+							getLoadingProgress() +
+							'%</span>';
 					}
-					e.src = e.getAttribute('data-url');
-				});
+				};
+				e.onerror = function(e){
+					alert("A");
+				}	
+				e.src = e.getAttribute('data-url');				
+			});
 
-				while (slideReady < SLIDE.length) {
-					console.log('loading...');
-					document.getElementById('login-title').innerHTML =
-						'<span>Đang tải dữ liệu</span><span class="dots"></span><br /><span>' +
-						getLoadingProgress() +
-						'%</span>';
-					await wait(2000);
-				}
-
-				console.log('page is fully loaded');
-
-				/* Hide login & show the swiper*/
-				document.getElementById('overlay').style.visibility = 'hidden';
-				document.getElementById('slideshow').style.visibility = 'visible';
-
-
-				swiper = new Swiper('.swiper', {
-					// Optional parameters
-					autoplay: true,
-					loop: true,
-					autoplayDisableOnInteraction: false,
-					// Navigation arrows
-					navigation: {
-						nextEl: '.swiper-button-next',
-						prevEl: '.swiper-button-prev',
-					},
-				});
-
-				console.log('swiper loaded');
-
+			while (slideReady < SLIDE.length) {
+				console.log('loading...');
+				document.getElementById('login-title').innerHTML =
+					'<span>Đang tải dữ liệu</span><span class="dots"></span><br /><span>' +
+					getLoadingProgress() +
+					'%</span>';
+				await wait(2000);
 			}
-			catch (err) {
+
+			console.log('page is fully loaded');
+
+			/* Hide login & show the swiper*/
+			document.getElementById('overlay').style.visibility = 'hidden';
+			document.getElementById('slideshow').style.visibility = 'visible';
+
+			
+			swiper = new Swiper('.swiper', {
+				// Optional parameters
+				autoplay: true,
+				loop: true,
+				autoplayDisableOnInteraction: false,
+				// Navigation arrows
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			});
+			
+			console.log('swiper loaded');
+			
+			}
+			catch(err){
 
 			}
 		}
@@ -659,7 +565,7 @@
 						'accelerometer; autoplay *; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
 					iframe.setAttribute('allowfullscreen', 'true');
 				}
-
+				
 				_frame.push(iframe);
 
 				var iframeDiv = document.createElement('div');
